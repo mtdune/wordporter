@@ -61,3 +61,4 @@ Debian GNU/Linux 9 from Official WordPress image.
 - gem 2.6.13 or later
 - Wordmove 4.0.0 or later
 - WP-CLI 2.1.0 or later
+- WordPress 5.1 or later

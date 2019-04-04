@@ -27,7 +27,7 @@ docker-compose build
 docker-compose up -d
 ```
 
-View to http://localhost:8000
+View to <http://localhost:8000>
 
 ### SSH to WordPress Docker container
 

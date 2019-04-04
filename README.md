@@ -1,5 +1,7 @@
 # WordPorter
 
+![WordPorter](logo.png)
+
 ## Introduction
 
 WordPorter is Docker files for WordPress developer.

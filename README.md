@@ -1,6 +1,7 @@
 # WordPorter
 
 ![WordPorter](logo.png)
+<!--- https://www.silhouette-illust.com/illust/40327 -->
 
 ## Introduction
 

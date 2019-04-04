@@ -5,12 +5,12 @@
 WordPorter is Docker files for WordPress developer.
 Clean development environment on official WordPress Docker image.
 
-## Getting Started
-
 ## Requires
 
 - Docker for your operating system
   - Windows user is required professional license for Hyper-V
+
+## Getting Started
 
 ### How to install
 

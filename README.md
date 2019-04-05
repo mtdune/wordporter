@@ -6,9 +6,14 @@
 ## Introduction
 
 WordPorter is Docker files for WordPress developer.
-Clean development environment on official WordPress Docker image.
 
-## Requires
+### Features
+
+- Clean development environment on official WordPress Docker image
+- You can use WordPress, Wordmove and WP-CLI
+- Sharing local files and directories
+
+### Requires
 
 - Docker for your operating system
   - Windows user is required professional license for Hyper-V
@@ -53,8 +58,6 @@ docker-compose down -v
 Debian GNU/Linux 9 from Official WordPress image.
 
 - Apache 2.4.25 or later
-  - netstat -uptap
-  - apachectl -v
 - PHP 7.2 or later
 - rbenv 1.1.2 or later
 - ruby 2.4.2 or later

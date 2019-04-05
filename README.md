@@ -31,6 +31,8 @@ I might answer a question at twitter.
 Clone this git repository to your computer.
 
 ```bash
+mkdir ./my-local-directory
+cd ./my-local-directory
 git clone https://github.com/mtdune/wordporter.git
 ```
 
@@ -41,7 +43,12 @@ docker-compose build
 docker-compose up -d
 ```
 
-View to <http://localhost:8000>
+After a few minutes. View to <http://localhost:8000>
+
+### Shared local files and directories
+
+- WordPress files to my-local-directory/wordpress/
+- MySQL files to my-local-directory/mysql/
 
 ### SSH to WordPress Docker container
 

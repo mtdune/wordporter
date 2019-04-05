@@ -7,9 +7,11 @@ ENV DEBCONF_NOWARNINGS yes
 # apt-get
 RUN apt-get update -y && apt-get upgrade -y
 RUN apt-get install -y git
+# RUN apt-get install -y vim
 RUN apt-get install -y autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev
 RUN apt-get install -y sshpass # for Wordmove
 RUN apt-get install -y net-tools # for netstat command
+RUN apt-get install -y sqlite3 libsqlite3-dev # for MailCatcher
 RUN apt-get clean
 
 # rbenv
@@ -41,3 +43,19 @@ RUN . /root/.bashrc; gem install -N wordmove
 RUN curl -s https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar > /root/wp-cli.phar
 RUN chmod +x /root/wp-cli.phar
 RUN mv /root/wp-cli.phar /usr/local/bin/wp
+
+# Install Japanese packages for WordPress
+# RUN wp core language install ja --activate --allow-root --path=`/var/www/html`
+# RUN wp plugin install wp-multibyte-patch --activate --allow-root --path=`/var/www/html`
+# RUN wp option update timezone_string $(wp eval "echo _x( '0', 'default GMT offset or timezone string' );") --allow-root --path=`/var/www/html`
+# RUN wp option update date_format $(wp eval "echo __( 'M jS Y' );") --allow-root --path=`/var/www/html`
+
+# MailCatcher
+# https://mailcatcher.me/
+# RUN gem install mailcatcher
+RUN . /root/.bashrc; gem install -N mailcatcher
+RUN echo "sendmail_path = /usr/bin/env catchmail -f some@from.address" > /usr/local/etc/php/php.ini
+
+# Wordmove
+# RUN wordmove init
+RUN . /root/.bashrc; wordmove init

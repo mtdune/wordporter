@@ -13,6 +13,7 @@ services:
       MYSQL_PASSWORD: wordpress
 
   wordpress:
+    # image: wordpress:latest
     depends_on:
       - db
     build:

@@ -4,6 +4,11 @@ FROM wordpress:latest
 ENV DEBIAN_FRONTEND noninteractive
 ENV DEBCONF_NOWARNINGS yes
 
+# SSH for Wordmove
+# https://www.kabegiwablog.com/entry/2018/08/03/140000
+COPY ./ssh/id_rsa /root/.ssh/
+RUN chmod 0600 /root/.ssh/id_rsa
+
 # apt-get
 RUN apt-get update -y && apt-get upgrade -y
 RUN apt-get install -y git
@@ -15,6 +20,7 @@ RUN apt-get install -y sqlite3 libsqlite3-dev # for MailCatcher
 RUN apt-get clean
 
 # rbenv
+RUN rm -rf /root/.rbenv
 RUN git clone -q https://github.com/rbenv/rbenv.git /root/.rbenv
 RUN git clone -q https://github.com/rbenv/ruby-build.git /root/.rbenv/plugins/ruby-build
 RUN /root/.rbenv/plugins/ruby-build/install.sh
@@ -58,4 +64,4 @@ RUN echo "sendmail_path = /usr/bin/env catchmail -f some@from.address" > /usr/lo
 
 # Wordmove
 # RUN wordmove init
-RUN . /root/.bashrc; wordmove init
+RUN cd /var/www/html && . /root/.bashrc; wordmove init

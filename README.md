@@ -37,7 +37,7 @@ git clone https://github.com/mtdune/wordporter.git
 
 # Copy your private key(OpenSSH format) to shared directory for Wordmove.
 # Private key be will copy from ~/ssh to ~/.ssh directory.
-cp ~/.ssh/id_rsa ./my-local-directory/ssh/id_rsa
+cp ~/.ssh/id_rsa ./ssh/id_rsa
 ```
 
 ### How to run

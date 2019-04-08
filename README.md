@@ -68,6 +68,8 @@ docker exec -it wp /bin/bash
 wordmove doctor
 ```
 
+See also [Wordmove](https://github.com/welaika/wordmove)
+
 ### SSH to WordPress Docker container
 
 Root login to WordPress Docker container.

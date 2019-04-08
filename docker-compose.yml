@@ -11,6 +11,10 @@ services:
       MYSQL_DATABASE: wordpress
       MYSQL_USER: wordpress
       MYSQL_PASSWORD: wordpress
+    ports:
+      - "3306:3306"
+    networks:
+      - default
 
   wordpress:
     # image: wordpress:latest
@@ -31,3 +35,9 @@ services:
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_PASSWORD: wordpress
+    networks:
+      - default
+
+networks:
+  default:
+    driver: bridge

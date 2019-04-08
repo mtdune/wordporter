@@ -15,6 +15,7 @@ RUN apt-get install -y git
 # RUN apt-get install -y vim
 RUN apt-get install -y autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev
 RUN apt-get install -y sshpass # for Wordmove
+RUN apt-get install -y mysql-client mysql-server # for Wordmove
 RUN apt-get install -y net-tools # for netstat command
 RUN apt-get install -y sqlite3 libsqlite3-dev # for MailCatcher
 RUN apt-get clean
@@ -65,3 +66,5 @@ RUN echo "sendmail_path = /usr/bin/env catchmail -f some@from.address" > /usr/lo
 # Wordmove
 # RUN wordmove init
 RUN cd /var/www/html && . /root/.bashrc; wordmove init
+
+# RUN apt-get install -y iputils-ping

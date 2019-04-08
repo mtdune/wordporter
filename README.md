@@ -45,6 +45,13 @@ docker-compose up -d
 
 After a few minutes. View to <http://localhost:8000>
 
+If it is rebuild. Use --no-cache option.
+
+```bash
+docker-compose build --no-cache
+docker-compose up -d
+```
+
 ### Shared local files and directories
 
 - WordPress files to my-local-directory/wordpress/

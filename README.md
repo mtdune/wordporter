@@ -54,6 +54,20 @@ After a few minutes. View to <http://localhost:8000>
 - WordPress files to my-local-directory/wordpress/
 - MySQL files to my-local-directory/mysql/
 
+### Edit movefile.yml for Wordmove
+
+- movefile.yml file is in my-local-directory/wordpress/movefile.yml directory.
+
+After Edited, Check movefile.yml file.
+
+```bash
+# SSH to WordPress Docker container
+docker exec -it wp /bin/bash
+
+# At Docker container
+wordmove doctor
+```
+
 ### SSH to WordPress Docker container
 
 Root login to WordPress Docker container.

@@ -34,6 +34,10 @@ Clone this git repository to your computer.
 mkdir ./my-local-directory
 cd ./my-local-directory
 git clone https://github.com/mtdune/wordporter.git
+
+# Copy your private key(OpenSSH format) to shared directory for Wordmove.
+# Private key be will copy from ~/ssh to ~/.ssh directory.
+cp ~/.ssh/id_rsa ./my-local-directory/ssh/id_rsa
 ```
 
 ### How to run
@@ -44,13 +48,6 @@ docker-compose up -d
 ```
 
 After a few minutes. View to <http://localhost:8000>
-
-If it is rebuild. Use --no-cache option.
-
-```bash
-docker-compose build --no-cache
-docker-compose up -d
-```
 
 ### Shared local files and directories
 
@@ -73,21 +70,19 @@ docker exec -it wp /bin/bash
 docker-compose down -v
 ```
 
-## Environments
+## Installed environments
 
-Debian GNU/Linux 9 from official WordPress image.
+These softwares are automatic installation by Docker files.
 
+- Debian GNU/Linux 9 from official WordPress image.
 - Apache 2.4.25 or later
 - PHP 7.2 or later
 
 WordPress
 
-- Wordmove 4.0.0 or later
 - WordPress 5.1 or later
-- WP-CLI 2.1.0 or later
-
-ruby
-
-- rbenv 1.1.2 or later
-- ruby 2.4.2 or later
-- gem 2.6.13 or later
+- Wordmove 4.0.0 or later
+  - rbenv 1.1.2 or later
+  - ruby 2.4.2 or later
+  - gem 2.6.13 or later
+  - WP-CLI 2.1.0 or later

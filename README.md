@@ -31,8 +31,8 @@ I might answer a question at twitter.
 Clone this git repository to your computer.
 
 ```bash
-mkdir ./my-local-directory
-cd ./my-local-directory
+mkdir my-local-directory
+cd my-local-directory
 git clone https://github.com/mtdune/wordporter.git
 
 # Copy your private key(OpenSSH format) to shared directory for Wordmove.

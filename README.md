@@ -61,7 +61,7 @@ After a few minutes. View to <http://localhost:8000>
 docker exec -it wp /bin/bash
 
 wordmove init
-wordmove doctor
+wordmove doctor # You all have to be successful. Please check below.
 ```
 
 movefile.yml file is in my-local-directory/wordpress/movefile.yml directory. You can edit it in local by your editor.
@@ -82,7 +82,7 @@ production:
 ...
 ```
 
-See also [Wordmove](https://github.com/welaika/wordmove)
+See also [Wordmove](https://github.com/welaika/wordmove).
 
 ### SSH to WordPress Docker container
 

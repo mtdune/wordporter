@@ -54,7 +54,23 @@ After a few minutes. View to <http://localhost:8000>
 - WordPress files to my-local-directory/wordpress/
 - MySQL files to my-local-directory/mysql/
 
-### Wordmove
+### SSH to WordPress Docker container
+
+Root login to WordPress Docker container.
+
+- Password not required
+
+```bash
+docker exec -it wp /bin/bash
+```
+
+### When finished
+
+```bash
+docker-compose down -v
+```
+
+## Wordmove
 
 ```bash
 # SSH to WordPress Docker container
@@ -84,20 +100,18 @@ production:
 
 See also [Wordmove](https://github.com/welaika/wordmove).
 
-### SSH to WordPress Docker container
-
-Root login to WordPress Docker container.
-
-- Password not required
+After edited movefile.yml file, execute wordmove pull command.
 
 ```bash
-docker exec -it wp /bin/bash
+wordmove pull --all
 ```
 
-### When finished
+If you cann't open <http://localhost:8000>, Use WordPress debug mode.
 
-```bash
-docker-compose down -v
+- wordpress/wp-config.php
+
+```php
+define( 'WP_DEBUG', false ); # true is enable WordPress debug mode.
 ```
 
 ## Installed environments
@@ -106,6 +120,7 @@ These softwares are automatic installation by Docker files.
 
 - Debian GNU/Linux 9 from official WordPress image.
 - Apache 2.4.25 or later
+  - user name and user group are www-data:www-data
 - PHP 7.2 or later
 
 WordPress

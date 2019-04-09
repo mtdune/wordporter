@@ -65,6 +65,6 @@ RUN echo "sendmail_path = /usr/bin/env catchmail -f some@from.address" > /usr/lo
 
 # Wordmove
 # RUN wordmove init
-RUN cd /var/www/html && . /root/.bashrc; wordmove init
+# RUN cd /var/www/html && . /root/.bashrc; wordmove init
 
 # RUN apt-get install -y iputils-ping

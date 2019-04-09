@@ -64,7 +64,7 @@ wordmove init
 wordmove doctor # You all have to be successful. Please check below.
 ```
 
-movefile.yml file is in my-local-directory/wordpress/movefile.yml directory. You can edit it in local by your editor.
+movefile.yml file is in my-local-directory/wordpress/movefile.yml directory. You can edit it in local by your favorite editor.
 
 ```yaml:movefile.yml
 global:

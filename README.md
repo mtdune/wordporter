@@ -54,18 +54,32 @@ After a few minutes. View to <http://localhost:8000>
 - WordPress files to my-local-directory/wordpress/
 - MySQL files to my-local-directory/mysql/
 
-### Edit movefile.yml for Wordmove
-
-- movefile.yml file is in my-local-directory/wordpress/movefile.yml directory.
-
-After Edited, Check movefile.yml file.
+### Wordmove
 
 ```bash
 # SSH to WordPress Docker container
 docker exec -it wp /bin/bash
 
-# At Docker container
+wordmove init
 wordmove doctor
+```
+
+movefile.yml file is in my-local-directory/wordpress/movefile.yml directory. You can edit it in local by your editor.
+
+```yaml:movefile.yml
+global:
+  sql_adapter: wpcli
+local:
+  vhost: http://localhost:8000
+  wordpress_path: /var/www/html # use an absolute path here
+  database:
+    name: "wordpress"
+    user: "root"
+    password: "wordpress" # could be blank, so always use quotes around
+    host: "db" # "db:3306" isn't work.
+    port: "3306"
+production:
+...
 ```
 
 See also [Wordmove](https://github.com/welaika/wordmove)
@@ -74,7 +88,7 @@ See also [Wordmove](https://github.com/welaika/wordmove)
 
 Root login to WordPress Docker container.
 
-- Password not required.
+- Password not required
 
 ```bash
 docker exec -it wp /bin/bash

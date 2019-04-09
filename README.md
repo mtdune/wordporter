@@ -82,6 +82,8 @@ wordmove doctor # You all have to be successful. Please check below.
 
 movefile.yml file is in my-local-directory/wordpress/movefile.yml directory. You can edit it in local by your favorite editor.
 
+- movefile.yml is written in character code UTF-8 and newline code LF
+
 ```yaml:movefile.yml
 global:
   sql_adapter: wpcli

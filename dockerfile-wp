@@ -7,6 +7,7 @@ ENV DEBCONF_NOWARNINGS yes
 # SSH for Wordmove
 # https://www.kabegiwablog.com/entry/2018/08/03/140000
 COPY ./ssh/id_rsa /root/.ssh/
+RUN chmod 0700 /root/.ssh
 RUN chmod 0600 /root/.ssh/id_rsa
 
 # apt-get
@@ -50,6 +51,10 @@ RUN . /root/.bashrc; gem install -N wordmove
 RUN curl -s https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar > /root/wp-cli.phar
 RUN chmod +x /root/wp-cli.phar
 RUN mv /root/wp-cli.phar /usr/local/bin/wp
+# See also https://www.webbernaut.com/wp-cli-inside-docker-container/
+RUN echo 'wp() {' >> ~/.bashrc && \
+echo '/usr/local/bin/wp "$@" --allow-root' >> ~/.bashrc && \
+echo '}' >> ~/.bashrc
 
 # Install Japanese packages for WordPress
 # RUN wp core language install ja --activate --allow-root --path=`/var/www/html`

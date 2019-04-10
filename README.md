@@ -72,9 +72,15 @@ docker-compose down -v
 
 ## Wordmove
 
+### Usage
+
 ```bash
 # SSH to WordPress Docker container
 docker exec -it wp /bin/bash
+
+# Add to the list of known hosts for Wordmove
+ssh -o StrictHostKeyChecking=no -o YOUR-SERVER-ADDRESS -l YOUR-SSH-USERNAME
+# Enter exit command in YOUR-SERVER-ADDRESS
 
 wordmove init
 wordmove doctor # You all have to be successful. Please check below.
@@ -108,13 +114,29 @@ After edited movefile.yml file, execute wordmove pull command.
 wordmove pull --all
 ```
 
-If you cann't open <http://localhost:8000>, Use WordPress debug mode.
+If you can't open <http://localhost:8000>, Use WordPress debug mode.
 
 - wordpress/wp-config.php
 
 ```php
 define( 'WP_DEBUG', false ); # true is enable WordPress debug mode.
 ```
+
+### utf8mb4 Error under MySQL 5.1
+
+If you can't PUSH to remote server by Wordmove, You have to manually import from MySQL dump file.
+
+```bash
+ssh YOUR-SSH-USERNAME@YOUR-SSH-SERVER
+su -
+mysql -uYOUR-MYSQL-USERNAME -p YOUR-DATABASE-NAME < wp-content/dump.sql
+```
+
+Notes
+
+- WordPress 4.2 or later required utf8mb4 character code for wp-emoji support
+- MySQL 5.5 or later can use utf8mb4 code
+- Official MySQL Docker image version is MySQL 5.5 or later
 
 ## Installed environments
 

@@ -2,6 +2,8 @@ version: "2"
 services:
   db:
     image: mysql:5.7
+    # https://qiita.com/neko-neko/items/de8ea13bbad32140de87
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_general_ci
     container_name: db
     volumes:
       - "./mysql:/var/lib/mysql"

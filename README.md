@@ -79,7 +79,7 @@ docker-compose down -v
 docker exec -it wp /bin/bash
 
 # Add to the list of known hosts for Wordmove
-ssh -o StrictHostKeyChecking=no -o YOUR-SERVER-ADDRESS -l YOUR-SSH-USERNAME
+ssh -o StrictHostKeyChecking=no YOUR-SERVER-ADDRESS -l YOUR-SSH-USERNAME
 # Enter exit command in YOUR-SERVER-ADDRESS
 
 wordmove init
@@ -92,7 +92,7 @@ movefile.yml file is in my-local-directory/wordpress/movefile.yml directory. You
 
 ```yaml:movefile.yml
 global:
-  sql_adapter: wpcli
+  sql_adapter: wpcli # You can choose default or wpcli
 local:
   vhost: http://localhost:8000
   wordpress_path: /var/www/html # use an absolute path here
@@ -106,12 +106,18 @@ production:
 ...
 ```
 
+- sql_adapter: wpcli is DB adapter by WP-CLI search-replace command
+- sql_adapter: default is Wordmove DB adapter in ruby language
+
 See also [Wordmove](https://github.com/welaika/wordmove).
 
 After edited movefile.yml file, execute wordmove pull command.
 
 ```bash
 wordmove pull --all
+
+wp search-replace 'https://YOUR-SERVER-URL' 'http://localhost:8000' --dry-run
+wp search-replace 'https://YOUR-SERVER-URL' 'http://localhost:8000'
 ```
 
 If you can't open <http://localhost:8000>, Use WordPress debug mode.
@@ -155,3 +161,7 @@ WordPress
   - ruby 2.4.2 or later
   - gem 2.6.13 or later
   - WP-CLI 2.1.0 or later
+
+## Wordmove Official Dockerfile
+
+- <https://hub.docker.com/r/welaika/wordmove/>

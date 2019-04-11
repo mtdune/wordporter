@@ -64,6 +64,13 @@ Root login to WordPress Docker container.
 docker exec -it wp /bin/bash
 ```
 
+Root login to MySQL container.
+
+```bash
+docker exec -it db /bin/bash
+mysql -uroot -p
+```
+
 ### When finished
 
 ```bash
